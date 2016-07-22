@@ -1,0 +1,117 @@
+﻿<Window x:Class="GetLogInfoClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GetLogInfoClient"
+        mc:Ignorable="d"
+        Title="日志程序客户端"
+        MinHeight="400"
+        MinWidth="500">
+
+    <DockPanel Margin="20">
+        <StackPanel DockPanel.Dock="Top">
+            <DockPanel  Margin="0,0,0,10">
+                <TextBlock Text="包含内容    ：" DockPanel.Dock="Left"></TextBlock>
+                <TextBox Text="{Binding IncludeFilteText ,Mode=TwoWay}" KeyUp="IncludeFilteText_KeyUp">
+                    <TextBox.Resources>
+                        <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
+                            <VisualBrush.Visual>
+                                <TextBlock FontStyle="Italic" Text="输入想包含的内容，多条内容以中文分号'；'隔开"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </TextBox.Resources>
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="">
+                                    <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </DockPanel>
+            <DockPanel  Margin="0,0,0,10">
+                <TextBlock Text="不包含内容：" DockPanel.Dock="Left" ></TextBlock>
+                <TextBox Text="{Binding UnIncludeFilteText ,Mode=TwoWay}" KeyUp="UnIncludeFilteText_KeyUp">
+                    <TextBox.Resources>
+                        <VisualBrush x:Key="HelpBrush2" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
+                            <VisualBrush.Visual>
+                                <TextBlock FontStyle="Italic" Text="输入不想包含的内容，多条内容以中文分号'；'隔开"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </TextBox.Resources>
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource HelpBrush2}"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="">
+                                    <Setter Property="Background" Value="{StaticResource HelpBrush2}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </DockPanel>
+            <ItemsControl ItemsSource="{Binding LogThemeSource}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsChecked}"></CheckBox>
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid  Rows="1" Margin="0,0,0,10" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+            <UniformGrid Rows="1" Margin="0,0,0,10">
+                <Button Name="ListenButton"  Content="开始监听"  Command="{Binding ListenStartCommand}" IsEnabled="{Binding ListenStartButtonIsEnabled}"></Button>
+                <Button Name="CancleButton"  Margin="5,0,5,0" Content="取消监听"  Command="{Binding CancleCommand}" IsEnabled="{Binding CancleButtonIsEnabled}"></Button>
+                <Button  Content="清  空"  Command="{Binding CleanCommand}"></Button>
+            </UniformGrid>
+        </StackPanel>
+        <DataGrid DockPanel.Dock="Bottom"
+                  ItemsSource="{Binding CurrentLogPackets,Mode=TwoWay}"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
+                  MouseDoubleClick="DataGrid_MouseDoubleClick">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="20" />
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="名称"
+                                        Width="100"
+                                        Binding="{Binding Name}" />
+                <DataGridTextColumn Header="IP"
+                                        Width="100"
+                                        Binding="{Binding IP}" />
+                <DataGridTextColumn Header="时间"
+                                        Width="150"
+                                        Binding="{Binding Path=LogInfo.Time}" />
+                <DataGridTextColumn Header="等级"
+                                        Width="100"
+                                        Binding="{Binding Path=LogInfo.Level}" />
+                <DataGridTextColumn Header="堆栈轨迹"
+                                        Width="200"
+                                        Binding="{Binding Path=LogInfo.StackTrace}" />
+                <DataGridTextColumn Header="信息"
+                                        MinWidth="100"
+                                        MaxWidth="500"
+                                        Binding="{Binding Path=LogInfo.Message}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

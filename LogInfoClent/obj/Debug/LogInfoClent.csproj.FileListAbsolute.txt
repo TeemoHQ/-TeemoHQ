@@ -1,0 +1,10 @@
+F:\Practice\Multicast_Practice\LogInfoClent\bin\Debug\LogInfoClent.exe.config
+F:\Practice\Multicast_Practice\LogInfoClent\bin\Debug\LogInfoClent.exe
+F:\Practice\Multicast_Practice\LogInfoClent\bin\Debug\LogInfoClent.pdb
+F:\Practice\Multicast_Practice\LogInfoClent\obj\Debug\LogInfoClent.exe
+F:\Practice\Multicast_Practice\LogInfoClent\obj\Debug\LogInfoClent.pdb
+F:\Practice\Multicast_Practice\LogInfoClent\bin\Debug\Newtonsoft.Json.dll
+F:\Practice\Multicast_Practice\LogInfoClent\bin\Debug\Newtonsoft.Json.xml
+F:\Practice\Multicast_Practice\LogInfoClent\bin\Debug\LogInfoClent.exe.CodeAnalysisLog.xml
+F:\Practice\Multicast_Practice\LogInfoClent\bin\Debug\LogInfoClent.exe.lastcodeanalysissucceeded
+F:\Practice\Multicast_Practice\LogInfoClent\obj\Debug\LogInfoClent.csprojResolveAssemblyReference.cache
