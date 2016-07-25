@@ -80,15 +80,26 @@
                 <Button  Content="清  空"  Command="{Binding CleanCommand}"></Button>
             </UniformGrid>
         </StackPanel>
-        <DataGrid DockPanel.Dock="Bottom"
+        <DataGrid x:Name="DataGrid"
+            DockPanel.Dock="Bottom"
+                  CanUserAddRows="False"
                   ItemsSource="{Binding CurrentLogPackets,Mode=TwoWay}"
                   IsReadOnly="True"
                   AutoGenerateColumns="False"
                   SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
-                  MouseDoubleClick="DataGrid_MouseDoubleClick">
+                  MouseDoubleClick="DataGrid_MouseDoubleClick"
+                  SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Setter Property="Height" Value="20" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        </Style.Triggers> 
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>
@@ -100,7 +111,7 @@
                                         Binding="{Binding IP}" />
                 <DataGridTextColumn Header="时间"
                                         Width="150"
-                                        Binding="{Binding Path=LogInfo.Time}" />
+                                        Binding="{Binding Path=LogInfo.Time,StringFormat=yyyy-MM-dd HH:mm:ss}"  />
                 <DataGridTextColumn Header="等级"
                                         Width="100"
                                         Binding="{Binding Path=LogInfo.Level}" />
@@ -108,7 +119,7 @@
                                         Width="200"
                                         Binding="{Binding Path=LogInfo.StackTrace}" />
                 <DataGridTextColumn Header="信息"
-                                        MinWidth="100"
+                                        MinWidth="300"
                                         MaxWidth="500"
                                         Binding="{Binding Path=LogInfo.Message}" />
             </DataGrid.Columns>

@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GetLogInfoClient.Dialog"
         mc:Ignorable="d"
-        Title="详细信息" Height="300" Width="600">
-    <DockPanel Margin="10">
-        <TextBox x:Name="DetailTB"></TextBox>
-    </DockPanel>
+        Title="详细信息"
+        Height="500"
+        Width="600">
+    <Grid Margin="5">
+        <TextBox x:Name="DetailTB"  TextWrapping="Wrap"></TextBox>
+    </Grid>
 </Window>

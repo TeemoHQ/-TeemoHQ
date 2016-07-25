@@ -28,6 +28,7 @@ namespace GetLogInfoClient
         private List<string> unIncludeFiltes;
         private List<LogPacket> removeIncludeLogPacket;
         private List<LogPacket> removeUnIncludeLogPacket;
+        public bool IsShowDetail = false;
         public MainWindowViewModel()
         {
             this.Init();
@@ -59,7 +60,7 @@ namespace GetLogInfoClient
                 //test data
                 //if (currentLogPackets == null)
                 //{
-                //    var test1 = new LogPacket() { Name = "Log_Main", IP = "Test1" };
+                //    var test1 = new LogPacket() { Name = "Log_Main", IP = "Test1"};
                 //    var test2 = new LogPacket() { Name = "Log_Net", IP = "Test2" };
                 //    currentLogPackets = new ObservableCollection<LogPacket>();
                 //    currentLogPackets.Add(test1);
@@ -304,6 +305,7 @@ namespace GetLogInfoClient
             App.Current.Dispatcher.Invoke(() =>
             {
                 this.CurrentLogPackets.Add(logPacket);
+                this.SelectedItem = logPacket;
             });
 
         }

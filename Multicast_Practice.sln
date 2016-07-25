@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multicast_Practice", "Multicast_Practice\Multicast_Practice.csproj", "{F0B328C1-D935-487F-99B6-9075CC5450FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Multicast_Practice\Server.csproj", "{F0B328C1-D935-487F-99B6-9075CC5450FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetLogInfoClient", "GetLogInfoClient\GetLogInfoClient.csproj", "{E6FE5B60-0AF1-4D13-9F67-B732B3B94D64}"
 EndProject

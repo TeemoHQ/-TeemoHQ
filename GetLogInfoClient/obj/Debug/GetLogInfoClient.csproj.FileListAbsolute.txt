@@ -39,4 +39,3 @@ F:\Practice\Multicast_Practice\GetLogInfoClient\bin\Debug\zh-Hans\System.Windows
 F:\Practice\Multicast_Practice\GetLogInfoClient\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 F:\Practice\Multicast_Practice\GetLogInfoClient\obj\Debug\Dialog\LogInfoDetailDialog.g.cs
 F:\Practice\Multicast_Practice\GetLogInfoClient\obj\Debug\Dialog\LogInfoDetailDialog.baml
-F:\Practice\Multicast_Practice\GetLogInfoClient\obj\Debug\GetLogInfoClient.csprojResolveAssemblyReference.cache

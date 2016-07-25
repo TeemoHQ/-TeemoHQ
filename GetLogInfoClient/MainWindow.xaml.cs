@@ -31,7 +31,16 @@ namespace GetLogInfoClient
             else
             {
                 var dialog = new LogInfoDetailDialog(ViewModel.SelectedItem);
-                dialog.ShowDialog();
+                ViewModel.IsShowDetail = true;
+                var res=dialog.ShowDialog();
+                ViewModel.IsShowDetail = false;
+            }
+        }
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ViewModel.SelectedItem != null&&!ViewModel.IsShowDetail)
+            {
+                DataGrid.ScrollIntoView(ViewModel.SelectedItem);
             }
         }
     }

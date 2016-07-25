@@ -15,7 +15,7 @@ namespace GetLogInfoClient.Dialog
             this.DetailTB.Text = string.Format("名称:{0}\nIP：{1}\n时间：{2}\n等级：{3}\n堆栈轨迹：{4}\n信息：{5}"
                 , logPacket.Name
                 , logPacket.IP
-                , logPacket.LogInfo.Time.ToString()
+                , logPacket.LogInfo.Time.ToString("yyyy-MM-dd HH:mm:ss")
                 , logPacket.LogInfo.Level.ToString()
                 , logPacket.LogInfo.StackTrace
                 , logPacket.LogInfo.Message);
